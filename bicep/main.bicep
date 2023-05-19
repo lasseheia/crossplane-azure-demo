@@ -29,7 +29,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2023-03-01' = {
   location: location
   sku: {
     name: 'Base'
-    tier: 'Free'
+    tier: 'Standard'
   }
   identity: {
     type: 'SystemAssigned'
