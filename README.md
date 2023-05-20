@@ -32,7 +32,7 @@ az aks get-credentials --subscription $SUBSCRIPTION_ID --resource-group $RESOURC
 ```bash
 helm repo add crossplane-stable https://charts.crossplane.io/stable
 helm repo update
-helm install crossplane --namespace crossplane-system --create-namespace crossplane-stable/crossplane
+helm install crossplane --namespace crossplane-system --create-namespace crossplane-stable/crossplane --set "args={--enable-management-policies}"
 ```
 ## Check Crossplane installation status
 ```bash
@@ -70,4 +70,5 @@ kubectl get kubernetesclusters
 ```bash
 rm azure-credentials.json
 az group delete --subscription $SUBSCRIPTION_ID --name $RESOURCE_GROUP_NAME --yes
+az ad sp delete --id $(jq -r .clientId azure-credentials.json)
 ```
