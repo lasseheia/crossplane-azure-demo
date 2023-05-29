@@ -1,0 +1,17 @@
+apiVersion: containerservice.azure.upbound.io/v1beta1
+kind: KubernetesCluster
+metadata:
+  name: crossplane-azure-demo-aks
+  annotations:
+    crossplane.io/external-name: crossplane-azure-demo-aks
+spec:
+  forProvider:
+    defaultNodePool:
+      - name: agentpool
+        nodeCount: 1
+        vmSize: Standard_D2ads_v5
+    dnsPrefix: crossplane-azure-demo-aks
+    identity:
+      - type: SystemAssigned
+    location: West Europe
+    resourceGroupName: crossplane-azure-demo-rg

@@ -1,0 +1,11 @@
+apiVersion: azure.upbound.io/v1beta1
+kind: ResourceGroup
+metadata:
+  name: crossplane-azure-demo-rg
+  annotations:
+    crossplane.io/external-name: crossplane-azure-demo-rg
+spec:
+  forProvider:
+    location: westeurope
+  providerConfigRef:
+    name: default
