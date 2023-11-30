@@ -33,7 +33,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   }
 }
 
-resource "azurerm_role_assignment" "example" {
+resource "azurerm_role_assignment" "main" {
   scope                = azurerm_kubernetes_cluster.main.id
   role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
   principal_id         = data.azurerm_client_config.current.object_id
